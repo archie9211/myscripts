@@ -191,7 +191,6 @@ function build_kernel {
 		CROSS_COMPILE=$CROSS_COMPILE \
 		CROSS_COMPILE_ARM32=$CROSS_COMPILE_ARM32 \
 		CC=$CC \
-		LD=ld.lld
 		CLANG_TRIPLE=aarch64-linux-gnu- 2>&1 | tee error.log
 	#make dtbo image
 	make O=out dtbo.img
