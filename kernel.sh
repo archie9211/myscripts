@@ -29,17 +29,17 @@ set -euo pipefail
 KERNEL_DIR=$PWD
 
 # The name of the Kernel, to name the ZIP
-ZIPNAME="azure"
+ZIPNAME="DarkOne"
 
 # The name of the device for which the kernel is built
-MODEL="Redmi Note 7 Pro"
+MODEL="Motorola One Power"
 
 # The codename of the device
-DEVICE="violet"
+DEVICE="chef"
 
 # The defconfig which should be used. Get it from config.gz from
 # your device or check source
-DEFCONFIG=vendor/violet-perf_defconfig
+DEFCONFIG=chef_defconfig
 
 # Clean source prior building. 1 is NO(default) | 0 is YES
 INCREMENTAL=1
@@ -49,7 +49,7 @@ PTTG=1
 	if [ $PTTG == 1 ]
 	then
 		# Set Telegram Chat ID
-		CHATID="-1001245830369"
+		CHATID="871884164"
 	fi
 
 # Generate a full DEFCONFIG prior building. 1 is YES | 0 is NO(default)
@@ -57,7 +57,7 @@ DEF_REG=0
 
 # Build dtbo.img (select this only if your source has support to building dtbo.img)
 # 1 is YES | 0 is NO(default)
-BUILD_DTBO=1
+BUILD_DTBO=0
 
 # Sign the zipfile
 # 1 is YES | 0 is NO
@@ -90,7 +90,7 @@ fi
 COMMIT_HEAD=$(git log --oneline -1)
 
 # Set Date 
-DATE=$(TZ=Asia/Jakarta date +"%Y%m%d-%T")
+DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 
 #Now Its time for other stuffs like cloning, exporting, etc
 
@@ -103,7 +103,7 @@ function clone {
 	TC_DIR=$PWD/clang-llvm
 
 	echo "★★Clang Done, Now Its time for AnyKernel .."
-	git clone --depth 1 --no-single-branch https://github.com/Panchajanya1999/AnyKernel2.git -b $DEVICE
+	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2.git -b $DEVICE
 	echo "★★Cloning libufdt"
 	git clone https://android.googlesource.com/platform/system/libufdt $KERNEL_DIR/scripts/ufdt/libufdt
 	echo "★★Cloning Kinda Done..!!!"
@@ -112,7 +112,7 @@ function clone {
 ##------------------------------------------------------##
 
 function exports {
-	export KBUILD_BUILD_USER="panchajanya"
+	export KBUILD_BUILD_USER="archie9211"
 	export KBUILD_BUILD_HOST="circleci"
 	export ARCH=arm64
 	export SUBARCH=arm64
