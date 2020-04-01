@@ -61,7 +61,7 @@ BUILD_DTBO=0
 
 # Sign the zipfile
 # 1 is YES | 0 is NO
-SIGN=1
+SIGN=0
 	if [ $SIGN == 1 ]
 	then
 			#Check java installed or not
@@ -192,7 +192,7 @@ function check_img {
 	else
 		if [ "$PTTG" == 1 ]
  		then
-			tg_post_build "error.log" "$CHATID" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>"
+			tg_post_build "error.log" "$CHNLID" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>""
 		fi
 	fi
 }
