@@ -42,7 +42,7 @@ DEVICE="chef"
 DEFCONFIG=chef_defconfig
 
 # Clean source prior building. 1 is NO(default) | 0 is YES
-INCREMENTAL=1
+INCREMENTAL=0
 
 # Push ZIP to Telegram. 1 is YES | 0 is NO(default)
 PTTG=1
