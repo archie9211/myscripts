@@ -103,7 +103,7 @@ function clone {
 	TC_DIR=$PWD/clang-llvm
 
 	echo "★★Clang Done, Now Its time for AnyKernel .."
-	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2.git -b $DEVICE
+	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2 
 	echo "★★Cloning libufdt"
 	git clone https://android.googlesource.com/platform/system/libufdt $KERNEL_DIR/scripts/ufdt/libufdt
 	echo "★★Cloning Kinda Done..!!!"
