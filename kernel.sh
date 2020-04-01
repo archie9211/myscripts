@@ -170,13 +170,7 @@ function build_kernel {
 	make -j$PROCS O=out \
 		CROSS_COMPILE=aarch64-linux-gnu- \
 		CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-		CC=clang \
-		AR=llvm-ar \
-		NM=llvm-nm \
-		LD=ld.lld \
-		OBJCOPY=llvm-objcopy \
-		OBJDUMP=llvm-objdump \
-		STRIP=llvm-strip 2>&1 | tee error.log
+		CC=clang  2>&1 | tee error.log
 	if [ $BUILD_DTBO == 1 ]
 	then
 		tg_post_msg "Building DTBO.." "$CHATID"
