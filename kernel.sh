@@ -169,7 +169,7 @@ function build_kernel {
 
 	BUILD_START=$(date +"%s")
 	make -j$PROCS O=out \
-		CROSS_COMPILE="$KERNEL_DIR/linaro/bin/aarch64-linux-gnu- \
+		CROSS_COMPILE="$KERNEL_DIR/linaro/bin/aarch64-linux-gnu- 2>&1 | tee error.log
 		# CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
 		# CC=clang  2>&1 | tee error.log
 	if [ $BUILD_DTBO == 1 ]
