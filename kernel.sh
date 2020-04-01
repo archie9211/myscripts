@@ -95,17 +95,6 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 
 function clone {
 	echo " "
-	echo "★★Cloning Azure Clang 11"
-	git clone --depth=1 https://github.com/Panchajanya1999/clang-llvm.git clang-llvm
-git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 	
-	# Toolchain Directory defaults to clang-llvm
-	TC_DIR=$PWD/clang-llvm
-
-	echo "★★Clang Done, Now Its time for AnyKernel .."
-	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2 
-	echo "★★Cloning libufdt"
-	git clone https://android.googlesource.com/platform/system/libufdt $KERNEL_DIR/scripts/ufdt/libufdt
-	echo "★★Cloning Kinda Done..!!!"
 }
 
 ##------------------------------------------------------##
@@ -115,9 +104,6 @@ function exports {
 	export KBUILD_BUILD_HOST="circleci"
 	export ARCH=arm64
 	export SUBARCH=arm64
-	export KBUILD_COMPILER_STRING=$($TC_DIR/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
-	PATH=$TC_DIR/bin/:$PATH
-	export PATH
 	export BOT_MSG_URL="https://api.telegram.org/bot$token/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$token/sendDocument"
 	export PROCS=$(nproc --all)
@@ -167,7 +153,7 @@ function build_kernel {
 
 	BUILD_START=$(date +"%s")
 	make -j$PROCS O=out \
-		CROSS_COMPILE="$KERNEL_DIR/aarch64-linux-android-4.9/bin/aarch64-linux-android-" 2>&1 | tee error.log
+		CROSS_COMPILE="aarch64-linux-gnu-" 2>&1 | tee error.log
 		
 	if [ $BUILD_DTBO == 1 ]
 	then
