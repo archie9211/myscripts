@@ -169,9 +169,8 @@ function build_kernel {
 
 	BUILD_START=$(date +"%s")
 	make -j$PROCS O=out \
-		CROSS_COMPILE="$KERNEL_DIR/linaro/bin/aarch64-linux-gnu- 2>&1 | tee error.log
-		# CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-		# CC=clang  2>&1 | tee error.log
+		CROSS_COMPILE="$KERNEL_DIR/linaro/bin/aarch64-linux-gnu-" 2>&1 | tee error.log
+		
 	if [ $BUILD_DTBO == 1 ]
 	then
 		tg_post_msg "Building DTBO.." "$CHATID"
@@ -192,7 +191,7 @@ function check_img {
 	else
 		if [ "$PTTG" == 1 ]
  		then
-			tg_post_build "error.log" "$CHNLID" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>""
+			tg_post_build "error.log" "$CHNLID" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>"
 		fi
 	fi
 }
