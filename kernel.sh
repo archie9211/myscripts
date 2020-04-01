@@ -27,7 +27,7 @@ set -euo pipefail
 
 # The defult directory where the kernel should be placed
 KERNEL_DIR=$PWD
-
+apt install gcc-aarch64-linux-gnu
 # The name of the Kernel, to name the ZIP
 ZIPNAME="DarkOne"
 
