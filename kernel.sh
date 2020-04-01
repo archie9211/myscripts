@@ -95,6 +95,7 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 
 function clone {
 	echo " "
+	export KBUILD_COMPILER_STRING="aarch64-linux-gnu-gcc by GNU"
 }
 
 ##------------------------------------------------------##
