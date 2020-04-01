@@ -98,7 +98,8 @@ function clone {
 	echo " "
 	echo "★★Cloning Azure Clang 11"
 	git clone --depth=1 https://github.com/Panchajanya1999/clang-llvm.git clang-llvm
-
+	git clone --depth=1 https://github.com/archie9211/linaro 
+	
 	# Toolchain Directory defaults to clang-llvm
 	TC_DIR=$PWD/clang-llvm
 
@@ -168,9 +169,9 @@ function build_kernel {
 
 	BUILD_START=$(date +"%s")
 	make -j$PROCS O=out \
-		CROSS_COMPILE=aarch64-linux-gnu- \
-		CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
-		CC=clang  2>&1 | tee error.log
+		CROSS_COMPILE="$KERNEL_DIR/linaro/bin/aarch64-linux-gnu- \
+		# CROSS_COMPILE_ARM32=arm-linux-gnueabi- \
+		# CC=clang  2>&1 | tee error.log
 	if [ $BUILD_DTBO == 1 ]
 	then
 		tg_post_msg "Building DTBO.." "$CHATID"
