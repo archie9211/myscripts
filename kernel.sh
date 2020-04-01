@@ -107,7 +107,7 @@ function exports {
 	export SUBARCH=arm64
 	export BOT_MSG_URL="https://api.telegram.org/bot$token/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$token/sendDocument"
-	export PROCS=$(nproc --all)
+	export PROCS=$((nproc --all)*(90/100))
 }
 
 ##---------------------------------------------------------##
