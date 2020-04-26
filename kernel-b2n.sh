@@ -81,7 +81,7 @@ function clone {
 	# Toolchain Directory defaults to clang-llvm
 	TC_DIR=$PWD/clang
 	echo "★★Clang Done, Now Its time for AnyKernel .."
-	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2.git
+	git clone --depth 1 --no-single-branch https://github.com/archie9211/AnyKernel2.git -b B2N
 	echo "★★Cloning Kinda Done..!!!"
 }
 
