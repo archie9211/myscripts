@@ -136,7 +136,8 @@ function build_kernel {
 	BUILD_START=$(date +"%s")
 	make -j$PROCS O=out \
 		CROSS_COMPILE=$CROSS_COMPILE \
-		CC=clang  2>&1 | tee error.log
+# 		CC=clang  
+		2>&1 | tee error.log
 	
 	BUILD_END=$(date +"%s")
 	DIFF=$((BUILD_END - BUILD_START))
