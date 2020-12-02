@@ -74,12 +74,12 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 
 function clone {
 	echo " "
-	echo "★★Cloning clang 11"
-	wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r383902.tar.gz
-	mkdir clang
-	tar xvzf clang-r383902.tar.gz --directory=clang
-	# Toolchain Directory defaults to clang-llvm
-	TC_DIR=$PWD/clang
+# 	echo "★★Cloning clang 11"
+# 	wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r383902.tar.gz
+# 	mkdir clang
+# 	tar xvzf clang-r383902.tar.gz --directory=clang
+# 	# Toolchain Directory defaults to clang-llvm
+# 	TC_DIR=$PWD/clang
 	echo "★★Cloning gcc 10"
 	git clone --depth 1 https://github.com/odroid-dev/gcc-10.x-aarch64-linux-gnu.git 
 	echo "★★Clang Done, Now Its time for AnyKernel .."
