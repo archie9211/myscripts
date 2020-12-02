@@ -94,11 +94,11 @@ function exports {
 	export KBUILD_BUILD_HOST="circleci"
 	export ARCH=arm64
 	export SUBARCH=arm64
-	KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
-	export KBUILD_COMPILER_STRING
-	PATH=$TC_DIR/bin/:$PATH
+# 	KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+# 	export KBUILD_COMPILER_STRING
+# 	PATH=$TC_DIR/bin/:$PATH
 	export CROSS_COMPILE="$PWD/gcc-10.x-aarch64-linux-gnu/bin/aarch64-linux-gnu-"
-	export PATH
+# 	export PATH
 	export BOT_MSG_URL="https://api.telegram.org/bot$token/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$token/sendDocument"
 	export PROCS=$(nproc --all)
