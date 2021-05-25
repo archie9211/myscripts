@@ -74,12 +74,12 @@ DATE=$(TZ=Asia/Kolkata date +"%Y%m%d-%T")
 
 function clone {
 	echo " "
-# 	echo "★★Cloning clang 11"
-# 	wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r383902.tar.gz
-# 	mkdir clang
-# 	tar xvzf clang-r383902.tar.gz --directory=clang
-# 	# Toolchain Directory defaults to clang-llvm
-# 	TC_DIR=$PWD/clang
+	echo "★★Cloning clang 11"
+	wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r383902.tar.gz
+	mkdir clang
+	tar xvzf clang-r383902.tar.gz --directory=clang
+	# Toolchain Directory defaults to clang-llvm
+	TC_DIR=$PWD/clang
 	echo "★★Cloning gcc 10"
 	git clone --depth 1 https://github.com/odroid-dev/gcc-10.x-aarch64-linux-gnu.git 
 	echo "★★Clang Done, Now Its time for AnyKernel .."
@@ -94,11 +94,11 @@ function exports {
 	export KBUILD_BUILD_HOST="circleci"
 	export ARCH=arm64
 	export SUBARCH=arm64
-# 	KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
-# 	export KBUILD_COMPILER_STRING
-# 	PATH=$TC_DIR/bin/:$PATH
+	KBUILD_COMPILER_STRING=$("$TC_DIR"/bin/clang --version | head -n 1 | perl -pe 's/\(http.*?\)//gs' | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')
+	export KBUILD_COMPILER_STRING
+	PATH=$TC_DIR/bin/:$PATH
 	export CROSS_COMPILE="$PWD/gcc-10.x-aarch64-linux-gnu/bin/aarch64-linux-gnu-"
-# 	export PATH
+	export PATH
 	export BOT_MSG_URL="https://api.telegram.org/bot$token/sendMessage"
 	export BOT_BUILD_URL="https://api.telegram.org/bot$token/sendDocument"
 	export PROCS=$(nproc --all)
@@ -136,7 +136,7 @@ function build_kernel {
 	BUILD_START=$(date +"%s")
 	make -j$PROCS O=out \
 		CROSS_COMPILE=$CROSS_COMPILE \
-# 		CC=clang  
+		CC=clang  
 		2>&1 | tee error.log
 	
 	BUILD_END=$(date +"%s")
