@@ -151,7 +151,7 @@ function check_img {
 	    then
 		gen_zip
 	else		
-		tg_post_build "error.log" "$CHNLID" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>"
+		tg_post_build error.log "$CHNLID" "<b>Build failed to compile after $((DIFF / 60)) minute(s) and $((DIFF % 60)) seconds</b>"
 	fi
 }
 
