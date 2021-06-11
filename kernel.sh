@@ -77,7 +77,7 @@ function clone {
 	echo "★★Cloning clang 11"
 	wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/master/clang-r416183c.tar.gz
 	mkdir clang
-	tar xvzf clang-r383902.tar.gz --directory=clang
+	tar xvzf clang-r416183c.tar.gz --directory=clang
 	# Toolchain Directory defaults to clang-llvm
 	TC_DIR=$PWD/clang
 	echo "★★Cloning gcc 10"
