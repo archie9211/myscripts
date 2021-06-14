@@ -27,7 +27,7 @@
 # The defult directory where the kernel should be placed
 KERNEL_DIR=$PWD
 # The name of the Kernel, to name the ZIP
-if [ $CIRCLE_BRANCH == "11.0-eas"
+if [ $CIRCLE_BRANCH == "11.0-eas" ]
 then
 	ZIPNAME="DarkOne-EAS"
 else 
