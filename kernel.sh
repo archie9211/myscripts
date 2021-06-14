@@ -49,7 +49,7 @@ INCREMENTAL=0
 
 # Push ZIP to Telegram. 1 is YES | 0 is NO(default)
 
-CHATID="871884164"
+CHATID="-1001113679979"
 
 
 
