@@ -27,7 +27,12 @@
 # The defult directory where the kernel should be placed
 KERNEL_DIR=$PWD
 # The name of the Kernel, to name the ZIP
-ZIPNAME="DarkOne"
+if [ $CIRCLE_BRANCH == "11.0-eas"
+then
+	ZIPNAME="DarkOne-EAS"
+else 
+	ZIPNAME="DarkOne-non-EAS"
+fi
 
 # The name of the device for which the kernel is built
 MODEL="Motorola One Power"
